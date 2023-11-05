@@ -27,6 +27,9 @@ That will install the following files:
 * express: ^4.17.1,
 * mongoose: ^7.0.2
 
+If you do not have a mongodb account, you can create one and set it as your server, under config/connection.js. 
+The default mongo-db connect is: 'mongodb://127.0.0.1:27017/studentsDB'. You can replace this with your server link. 
+
 Then run the program with the command:  
   npm start
 
@@ -47,4 +50,3 @@ Then run the program with the command:
 ## Contact
 
 Created by s0m3y3 [(github)](https://github.com/s0m3y3/socialMedia_back-end).  
-Last updated: 10/19/2023
