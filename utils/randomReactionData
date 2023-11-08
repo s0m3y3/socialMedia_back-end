@@ -1,0 +1,29 @@
+//This generate a random reaction for seed, in Thought models. 
+
+const reaction = [
+'Liked!',
+'Disliked!',
+'Happy!',
+'Sad!',
+'Yay!',
+'Oh No!',
+'NOOO!!',
+'LOL',
+'WTF',
+'NVM',
+'SMH',
+'Whao!',
+'Wow',
+'Yeah!',
+'Dissapointed',
+'Angry',
+'Cries~',
+'LMAO~',
+'MEANIE!',
+'Huh?',
+'Eww..',
+'' // One reaction is left blank, intentionally. 
+]
+
+const randomReaction= () => thought[Math.floor(Math.random() * reaction.length)];
+module.exports = randomReaction;
