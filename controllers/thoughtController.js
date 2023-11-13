@@ -3,7 +3,7 @@ const Thought = require('../models/Thought');
 module.exports = {
     async getSingleThoughts (req, res) {
         try {
-            const thought = await Thought.findById(req.params.ThoughtID);
+            const thought = await Thought.findById(req.params.thoughtID);
             if (!thought) { return res.status(404).json({ message: 'Thought not found' });}
             res.status(200).json(thought);
         } 
@@ -37,9 +37,10 @@ module.exports = {
           }
     },
 
+    //need fixing
     async deleteThoughts (req, res) {
         try {
-            await Thought.findByIdAndDelete(req.params.id);
+            await Thought.findByIdAndDelete(req.params.thoughtID);
             res.json({ message: 'Thought deleted successfully' });
           } catch (err) {
             res.status(500).json(err);

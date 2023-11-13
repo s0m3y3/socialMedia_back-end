@@ -5,6 +5,11 @@ const getRandomName = require('./randomNameData');
 const getrandomThought = require('./randomThoughtsData');
 const getrandomReaction = require('./randomReactionData');
 
+//timestamp library for thoughts & reaction
+const { format } = require('date-fns');
+const currentTimestamp = new Date();
+const formattedDate = format(currentTimestamp, 'yyyy-MM-dd HH:mm:ss');
+
 // console.log(getRandomName());
 connection.on('error', (err) => err);
 
@@ -36,7 +41,6 @@ connection.once('open', async () => {
     users.push({
       username,
       email,
-      thought,
     });
   }
 
