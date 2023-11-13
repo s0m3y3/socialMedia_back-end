@@ -28,8 +28,8 @@ module.exports = {
   // create a new user
   async createUser(req, res) {
     try {
-      const dbUserData = await User.create(req.body);
-      res.json(dbUserData);
+      const userData = await User.create(req.body);
+      res.json(userData);
     } catch (err) {
       res.status(500).json(err);
     }
