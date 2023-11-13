@@ -1,8 +1,8 @@
 //This seed generate random data for testing only. 
 const connection = require('../config/connection');
 const { User, Thought } = require('../models');
-const getRandomName = require('./randomNameData');
-const getrandomThought = require('./randomThoughtsData');
+const getRandomUser = require('./randomUserData');
+const getThought = require('./randomThoughtsData');
 const getrandomReaction = require('./randomReactionData');
 
 //timestamp library for thoughts & reaction
@@ -27,17 +27,11 @@ connection.once('open', async () => {
   }
   const users = [];
 
-// generate 20 random user names (for test seed purpose only)
-  for (let i = 0; i < 20; i++) {
-    const fullName = getRandomName();
-    const thought = getrandomThought();
-    const reaction = getrandomReaction();
-    const first = fullName[0];
-    const last = fullName[1];
-
-    username = last+'.'+first
-    email = first+"."+last+fullName[2]
-
+// generate i random user names (for test seed purpose only)
+  for (let i = 0; i < 10; i++) {
+    const userdata = getRandomUser();
+    username = userdata[0]+'.'+userdata[1]
+    email = username+userdata[2]
     users.push({
       username,
       email,

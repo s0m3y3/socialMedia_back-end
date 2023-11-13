@@ -1,4 +1,7 @@
 //This generate a random thought for seed. 
+const { format } = require('date-fns');
+const currentTimestamp = new Date();
+const formattedDate = format(currentTimestamp, 'yyyy-MM-dd HH:mm:ss');
 
 const thought = [
 'That is a cool thing!',
@@ -28,4 +31,10 @@ const thought = [
 ]
 
 const randomThought = () => thought[Math.floor(Math.random() * thought.length)];
-module.exports = randomThought;
+
+const getThought = () => {
+    const thought = randomThought();
+    return [thought, formattedDate];
+  };
+
+module.exports = getThought;
