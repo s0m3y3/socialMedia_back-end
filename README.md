@@ -49,4 +49,5 @@ Then run the program with the command:
 
 ## Contact
 
-Created by s0m3y3 [(github)](https://github.com/s0m3y3/socialMedia_back-end).  
+Github: [Link](https://github.com/s0m3y3/socialMedia_back-end)  
+

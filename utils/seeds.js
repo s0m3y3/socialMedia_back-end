@@ -22,12 +22,6 @@ connection.once('open', async () => {
     console.log('Users db dropped.')
   }
 
-  let userCheck = await connection.db.listCollections({ name: 'users' }).toArray();
-  if (userCheck.length) {
-    await connection.dropCollection('users');
-    console.log('Users db dropped.')
-  }
-
   const users = [];
 
 // generate 20 random user names (for test seed purpose only)
@@ -38,15 +32,14 @@ connection.once('open', async () => {
     const first = fullName.split(' ')[0];
     const last = fullName.split(' ')[1];
 
-    username = first + '.' + last
+    username = last+'.'+first
+    email = first+"."+last+fullName[2]
 
     users.push({
-      first,
-      last,
-      age: Math.floor(Math.random() * (99 - 18 + 1) + 18),
+      username,
+      email,
       thought
     });
-
   }
 
   await User.collection.insertMany(users);
