@@ -25,5 +25,5 @@ const reaction = [
 '' // One reaction is left blank, intentionally. 
 ]
 
-const randomReaction= () => thought[Math.floor(Math.random() * reaction.length)];
+const randomReaction= () => reaction[Math.floor(Math.random() * reaction.length)];
 module.exports = randomReaction;

@@ -7,13 +7,12 @@
   "scripts": {
     "start": "node index",
     "dev": "nodemon index",
-    "seed": "node utils/seed"
+    "seed": "node utils/seeds.js"
   },
   "dependencies": {
-    "dotenv": "^16.3.1",
-    "env": "^0.0.2",
     "express": "^4.17.1",
     "mongoose": "^7.0.2"
+
   },
   "devDependencies": {
     "nodemon": "^2.0.9"

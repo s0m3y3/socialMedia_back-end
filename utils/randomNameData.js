@@ -504,6 +504,6 @@ const email = [
   const getEmailPart = () => email[Math.floor(Math.random() * email.length)];
   const firstname = getNamePart();
   const secondname = getNamePart();
-  const getRandomName = [firstname,secondname, getEmailPart()];
+  const getRandomName = () => [firstname,secondname, getEmailPart()];
   
   module.exports = getRandomName;
