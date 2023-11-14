@@ -19,6 +19,7 @@ router.route('/:userId')
   .delete(deleteUser);
 
 // /api/user/:userID/friend/:friendId
+//currently does not work. To be implemented in future. 
 router.route('/:userId/friends/:friendId')
   .post(addFriend)
   .delete(deleteFriend)
