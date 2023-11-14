@@ -27,7 +27,7 @@ module.exports = {
             res.status(500).json(err);
           }
         },
-
+//need testing
     async updateThoughts (req, res) {
         try {
             const updatedThought = await Thought.findByIdAndUpdate(req.params.id, req.body, { new: true });
