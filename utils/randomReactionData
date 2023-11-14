@@ -1,6 +1,11 @@
 //This generate a random reaction for seed, in Thought models. 
 
-const reaction = [
+//timestamp for the reaction
+const { format } = require('date-fns');
+const currentTimestamp = new Date();
+const formattedDate = format(currentTimestamp, 'yyyy-MM-dd HH:mm:ss');
+
+const reactionList = [
 'Liked!',
 'Disliked!',
 'Happy!',
@@ -22,8 +27,23 @@ const reaction = [
 'MEANIE!',
 'Huh?',
 'Eww..',
+'Excited!',
+'Confused?',
+'Thumbs up!',
+'Facepalm',
+'Awesome!',
+'Ugh!',
+'Cool',
+'Proud',
+'Aww!',
+'Cringe',
+'...',
 '' // One reaction is left blank, intentionally. 
 ]
 
-const randomReaction= () => reaction[Math.floor(Math.random() * reaction.length)];
-module.exports = randomReaction;
+const randomReaction= () => reactionList[Math.floor(Math.random() * reactionList.length)];
+const getReaction = () => {
+    const reaction = randomReaction();
+    return [reaction, formattedDate];
+  };
+module.exports = getReaction;

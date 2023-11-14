@@ -3,12 +3,7 @@ const connection = require('../config/connection');
 const { User, Thought } = require('../models');
 const getRandomUser = require('./randomUserData');
 const getThought = require('./randomThoughtsData');
-const getrandomReaction = require('./randomReactionData');
-
-//timestamp library for thoughts & reaction
-const { format } = require('date-fns');
-const currentTimestamp = new Date();
-const formattedDate = format(currentTimestamp, 'yyyy-MM-dd HH:mm:ss');
+const getReaction = require('./randomReactionData');
 
 // console.log(getRandomName());
 connection.on('error', (err) => err);
@@ -26,6 +21,7 @@ connection.once('open', async () => {
     console.log('Users db dropped.')
   }
   const users = [];
+  const userThought = [];
 
 // generate i random user names (for test seed purpose only)
   for (let i = 0; i < 10; i++) {
@@ -33,33 +29,32 @@ connection.once('open', async () => {
     let username = getUser[0]
     let email = username+getUser[1]
     let thoughts = getThought();
-    console.log("thoughts: " + thoughts)
+    let userReaction = getReaction();
+    console.log("reactions: " + userReaction);
+    // console.log("thoughts: " + thoughts)
 
     users.push({
       username,
       email,
       thoughts,
     });
+
+    userThought.push({
+      thoughts,
+      username,
+      //NOTE: The same user is reacting on their thoughts. Will need to update. 
+      reactions: [{ReactionBody: userReaction[0],username, createdAt: userReaction[1]}],
+    })
+
+    //currently doesnt work. 
+    // userReaction.push({
+    //   username,
+    //   reactions,
+    // })
   }
 
-// generate friends seed
-  // const randomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);  //random integer number between 0-3, used for generating friends
-  // for (let i = 0; i < users.length; i++) {
-  //   const numberOfFriends = randomNumber(0, 2); 
-  //   const friends = [];
-  //   // Generate a random set of friends
-  //   while (friends.length < numberOfFriends) {
-  //     const randomIndex = randomNumber(0, users.length - 1);
-  //     // Ensure the user is not added as friend
-  //     if (randomIndex !== i && !friends.includes(randomIndex)) {
-  //       friends.push(randomIndex);
-  //     }
-  //   }
-  //   // Update the user with the generated friends
-  //   await User.findByIdAndUpdate(users[i]._id, { $push: { friends: friends.map(index => users[index]._id) } });
-  // }
-
   await User.collection.insertMany(users);
-  console.log(users);
+  await Thought.collection.insertMany(userThought);
+  // console.log(users);
   process.exit(0);
 });

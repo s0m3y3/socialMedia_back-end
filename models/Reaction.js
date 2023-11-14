@@ -1,5 +1,7 @@
 //Pending... to keep or delete?? This file is also in thought.js models. 
 
+// const { Schema, model } = require('mongoose');
+
 // const reactionSchema = new Schema({
 //     reactionBody: {
 //       type: String,
@@ -14,5 +16,8 @@
 //       type: Date,
 //       default: Date.now,
 //     },
-//   });
-//   const Reaction = model('reaction', reactionSchema);
+// });
+
+// const Reaction = model('reaction', reactionSchema);
+
+// module.exports = Reaction;

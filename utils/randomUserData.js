@@ -1,4 +1,4 @@
-//this list is from 18-NoSQL assignment. It will be used to help generate random names, first/last. This is the shorten list. 
+//this list is from 18-NoSQL assignment. It will be used to help generate random username, first/last. This is the shorten list. 
 const names = [
   'Aaran',
   'Aaren',
