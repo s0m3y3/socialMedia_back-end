@@ -3,7 +3,7 @@ const Thought = require('../models/Thought');
 module.exports = {
     async getSingleThoughts (req, res) {
         try {
-            const thought = await Thought.findById(req.params.thoughtID);
+          const thought = await Thought.findOne({ _id: req.params.thoughtId });
             if (!thought) { return res.status(404).json({ message: 'Thought not found' });}
             res.status(200).json(thought);
         } 

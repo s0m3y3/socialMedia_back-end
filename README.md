@@ -4,18 +4,14 @@ Jump-start your social media app, with this back-end setup!
 ## Table of Contents
 
 - [Description](#description)
-- [Features](#features)
 - [Screenshots/videos](#Screenshots/videos)
 - [Installation](#Installation)
-- [Usage](#usage)
 - [License](#license)
 - [Contact](#contact)
 
 ## Description
 (pending...)
 
-## Features
-(pending...)
 
 ## Screenshots/videos:
 (pending...)
@@ -33,8 +29,31 @@ The default mongo-db connect is: 'mongodb://127.0.0.1:27017/studentsDB'. You can
 Then run the program with the command:  
   npm start
 
-## Usage
-(pending...)
+Then use an app like Insomnia to do the following commands: 
+
+
+GET
+.../api/thoughts 
+.../api/users 
+.../api/thoughts/:id
+.../api/users/:id
+
+POST
+.../api/users/
+
+PUT
+.../api/users/:id
+
+<!-- 
+DELETE
+.../api/users/:id
+
+DELETE & POST 
+/api/users/:id/friends/:id
+ -->
+
+NOTE: "..." is the server. If local, then it may be:  http://localhost:3005/, so the first GET will look as:  
+http://localhost:3005/api/thoughts 
 
 ## License -->
 
@@ -50,5 +69,5 @@ Then run the program with the command:
 ## Contact
 
 Github: [Link](https://github.com/s0m3y3/socialMedia_back-end)  
-Deployed: [Link-BROKEN]()
+No deployed Link.
 

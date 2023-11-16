@@ -7,12 +7,13 @@ const {
   getSingleThoughts
 } = require('../../controllers/thoughtController.js');
 
-// /api/Thought
-router.route('/').get(getThoughts).post(createThoughts);
+// /api/thought
+router.route('/').
+get(getThoughts).post(createThoughts);
 
-// /api/Thought/:ThoughtID
+// /api/Thought/:thoughtId
 router
-  .route('/thought/:thoughtID')
+  .route('/:thoughtId')
   .get(getSingleThoughts)
   .put(updateThoughts)
   .delete(deleteThoughts);

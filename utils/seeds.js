@@ -23,12 +23,10 @@ connection.once('open', async () => {
   const users = [];
   const userThought = [];
 
-// generate i random user names (for test seed purpose only)
+// generate i random usernames, thoughts and reaction 
   for (let i = 0; i < 10; i++) {
-    let getUser = getRandomUser();
-    let username = getUser[0]
-    let email = username+getUser[1]
-    let thoughts = getThought();
+    let [username, email] = getRandomUser();
+    const [thoughtContent, thoughtCreatedAt] = getThought();
     let userReaction = getReaction();
     console.log("reactions: " + userReaction);
     // console.log("thoughts: " + thoughts)
@@ -36,21 +34,16 @@ connection.once('open', async () => {
     users.push({
       username,
       email,
-      thoughts,
+      thoughts:thoughtContent,
     });
 
     userThought.push({
-      thoughts,
+      thoughts: thoughtContent,
       username,
+      createdAt: thoughtCreatedAt,
       //NOTE: The same user is reacting on their thoughts. Will need to update. 
       reactions: [{ReactionBody: userReaction[0],username, createdAt: userReaction[1]}],
     })
-
-    //currently doesnt work. 
-    // userReaction.push({
-    //   username,
-    //   reactions,
-    // })
   }
 
   await User.collection.insertMany(users);

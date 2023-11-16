@@ -33,39 +33,42 @@ module.exports = {
     catch (err) {res.status(500).json(err);}
   },
 
-  //does not work
   async updateUser(req, res) {
     try {
-      const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
+      const updatedUser = await User.findByIdAndUpdate(
+        { _id: req.params.userId }, 
+        req.body, 
+        { new: true }
+        );
       res.json(updatedUser);
     } 
     catch (err) {res.status(500).json(err);}
   },
 
-  //does not work
   async deleteUser(req, res) {
-    try {
-      await User.findByIdAndDelete(req.params.id);
-      res.json({ message: 'User deleted successfully' });
-    } 
-    catch (err) {res.status(500).json(err);}
-  },
-
-  async addFriend(req, res) {
-    try {
-//code me
-    } 
-    catch (err) {res.status(500).json(err);}
-  },
-
-  //need testing. 
-  async deleteFriend(req, res) {
     try {
       await User.findByIdAndDelete({ _id: req.params.userId });
       res.json({ message: 'User deleted successfully' });
     } 
     catch (err) {res.status(500).json(err);}
   },
+
+
+//future implementation code: 
+//   async addFriend(req, res) {
+//     try {
+// //code me
+//     } 
+//     catch (err) {res.status(500).json(err);}
+//   }, 
+
+//   async deleteFriend(req, res) {
+//     try {
+//       await User.findByIdAndDelete({ _id: req.params.userId });
+//       res.json({ message: 'User deleted successfully' });
+//     } 
+//     catch (err) {res.status(500).json(err);}
+//   },
 
 
 };
