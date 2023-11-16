@@ -14,7 +14,8 @@ Jump-start your social media app, with this back-end setup!
 
 
 ## Screenshots/videos:
-(pending...)
+![Preview](https://drive.google.com/file/d/1mDykGiKnAjBd2Zw12DA37irZAk9j6j-E/view?usp=drive_link)
+
 
 ## Installation
 In the root folder of this apps, you will need to install node package. Enter in terminal: npm i. 
